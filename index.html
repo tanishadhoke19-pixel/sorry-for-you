@@ -2,21 +2,27 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>I'm Sorry ❤️</title>
+<title>I'm Sorry 🥺</title>
 
 <style>
 
 body{
 font-family: Arial, sans-serif;
-background: linear-gradient(135deg,#ffd6e7,#ffeef5);
+background: linear-gradient(135deg,#ffd6e7,#fff0f6);
 text-align:center;
-padding-top:100px;
+padding-top:80px;
 overflow:hidden;
 }
 
 h1{
-font-size:40px;
 color:#ff3b6b;
+font-size:42px;
+}
+
+#bear{
+font-size:120px;
+margin:20px;
+transition:0.3s;
 }
 
 p{
@@ -33,36 +39,32 @@ border:none;
 border-radius:25px;
 cursor:pointer;
 margin:20px;
-transition:0.3s;
 }
 
 #yes{
-background:#ff3b6b;
+background:#ff4d6d;
 color:white;
 }
 
 #no{
 background:#cccccc;
-position:absolute;
 }
 
 #message{
-display:none;
+margin-top:30px;
 font-size:26px;
-color:#ff3b6b;
-margin-top:40px;
+display:none;
 }
 
 .heart{
 position:absolute;
-color:pink;
 font-size:20px;
-animation:float 6s infinite;
+animation:float 6s linear infinite;
 }
 
 @keyframes float{
 0%{transform:translateY(0);}
-100%{transform:translateY(-800px);}
+100%{transform:translateY(-900px);}
 }
 
 </style>
@@ -70,52 +72,66 @@ animation:float 6s infinite;
 
 <body>
 
-<h1>Hey ❤️</h1>
+<h1>Hey 🥺</h1>
+
+<div id="bear">🧸</div>
 
 <p>
-I'm really sorry. I didnt mean anything bad last night.  
-You do a lot to me and I hate that I made you upset.  
-I made this little page because I wanted to say sorry properly.
-I will do a lot for you as well. I love you the most.
+I know I messed up and I'm really sorry. I was thoughtless but I didnt mean anything bad last night. 
+You do a lot to me and I hate that I hurt you.  
+So I made this little page for you. I'm really sorry baby.
 </p>
 
 <h2>Will you forgive me?</h2>
 
-<button id="yes" onclick="forgive()">Yes ❤️</button>
-<button id="no" onmouseover="moveButton()">No 🙃</button>
+<button id="yes" onclick="yesClick()">Yes ❤️</button>
+<button id="no" onclick="noClick()">No 💔</button>
 
-<div id="message">
-Thank you for forgiving me 🥺❤️  
-I promise I'll do better.
-</div>
+<div id="message"></div>
 
 <script>
 
-function forgive(){
+function yesClick(){
+
+document.getElementById("bear").innerHTML="🥰";
+
 document.getElementById("message").style.display="block";
+
+document.getElementById("message").innerHTML="YAY!! Thank you for forgiving me ❤️";
+
+createHearts();
+
 }
 
-function moveButton(){
-let x=Math.random()*window.innerWidth;
-let y=Math.random()*window.innerHeight;
+function noClick(){
 
-let btn=document.getElementById("no");
-btn.style.left=x+"px";
-btn.style.top=y+"px";
+document.getElementById("bear").innerHTML="😢";
+
+document.getElementById("message").style.display="block";
+
+document.getElementById("message").innerHTML="Oh no... the bear is very sad now 🥺";
+
 }
 
 function createHearts(){
-const heart=document.createElement("div");
-heart.classList.add("heart");
+
+for(let i=0;i<20;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
 heart.innerHTML="❤️";
+
 heart.style.left=Math.random()*100+"vw";
-heart.style.animationDuration=(3+Math.random()*3)+"s";
+
+heart.style.top=Math.random()*100+"vh";
+
 document.body.appendChild(heart);
 
-setTimeout(()=>{heart.remove();},6000);
 }
 
-setInterval(createHearts,300);
+}
 
 </script>
 
