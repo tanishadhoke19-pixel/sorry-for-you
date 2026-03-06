@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>I'm Sorry ❤️</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg,#ffd6e7,#ffeef5);
+text-align:center;
+padding-top:100px;
+overflow:hidden;
+}
+
+h1{
+font-size:40px;
+color:#ff3b6b;
+}
+
+p{
+font-size:20px;
+width:60%;
+margin:auto;
+color:#444;
+}
+
+button{
+padding:15px 25px;
+font-size:18px;
+border:none;
+border-radius:25px;
+cursor:pointer;
+margin:20px;
+transition:0.3s;
+}
+
+#yes{
+background:#ff3b6b;
+color:white;
+}
+
+#no{
+background:#cccccc;
+position:absolute;
+}
+
+#message{
+display:none;
+font-size:26px;
+color:#ff3b6b;
+margin-top:40px;
+}
+
+.heart{
+position:absolute;
+color:pink;
+font-size:20px;
+animation:float 6s infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+100%{transform:translateY(-800px);}
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Hey ❤️</h1>
+
+<p>
+I'm really sorry. I didnt mean anything bad last night.  
+You do a lot to me and I hate that I made you upset.  
+I made this little page because I wanted to say sorry properly.
+I will do a lot for you as well. I love you the most.
+</p>
+
+<h2>Will you forgive me?</h2>
+
+<button id="yes" onclick="forgive()">Yes ❤️</button>
+<button id="no" onmouseover="moveButton()">No 🙃</button>
+
+<div id="message">
+Thank you for forgiving me 🥺❤️  
+I promise I'll do better.
+</div>
+
+<script>
+
+function forgive(){
+document.getElementById("message").style.display="block";
+}
+
+function moveButton(){
+let x=Math.random()*window.innerWidth;
+let y=Math.random()*window.innerHeight;
+
+let btn=document.getElementById("no");
+btn.style.left=x+"px";
+btn.style.top=y+"px";
+}
+
+function createHearts(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(3+Math.random()*3)+"s";
+document.body.appendChild(heart);
+
+setTimeout(()=>{heart.remove();},6000);
+}
+
+setInterval(createHearts,300);
+
+</script>
+
+</body>
+</html>
